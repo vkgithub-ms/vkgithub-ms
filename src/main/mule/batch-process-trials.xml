@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<file:config name="MyFileConfig" doc:name="File Config" doc:id="2da8c76d-be88-4dff-bdc3-ac8be8890b18" >
+		<file:connection workingDir="C:\source\ipas\mulesoft\Training\MUFundamentals4.2_studentFiles_27jul2019\resources" />
+	</file:config>
+	<flow name="batch-process-trials-1" doc:id="b57b8c80-38ac-4007-ab39-eb19bad4890a">
+		<http:listener doc:name="HTTP: initTrialBatch1" doc:id="f1f010d8-07b0-48e6-b901-ac018e523989" config-ref="HTTP_Listener_config" path="/initTrialBatch1"/>
+		<file:read doc:name="Read Trial-1 File" doc:id="e2091258-d7d3-46c1-8e2b-47fb2e6dc6cc" config-ref="MyFileConfig" path="trial1/Canvas Attendance - 34221.csv" outputMimeType="application/csv"/>
+		<ee:transform doc:name="Transform Message" doc:id="79558cf7-0ff8-4817-9cc7-b26d575124db" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json 
+---
+payload map (record, index) -> {
+	id: index,
+	sid: record.Id default index,
+	course: record.Course,
+	date: record.Attn_Date,
+	hours: record.Attn_Hours
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="Transform Message" doc:id="b29c4a1a-a9dc-4a5b-9ad5-e44ade56e7bb">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+import * from dw::core::Arrays
+output application/json
+---
+payload divideBy 2000]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<batch:job jobName="batch-process-trials-1_Batch_Job1" doc:id="0682c0dc-1e38-4cfc-a2b4-a3034633b147" >
+			<batch:process-records >
+				<batch:step name="Batch_Step1" doc:id="bbaa4b51-1e3f-4789-9831-500566a07f48" >
+					<flow-ref doc:name="Flow Reference" doc:id="b686761f-8e6e-4aac-ab51-093fab2e3907" name="batch-process-trials-1_subFlow" />
+				</batch:step>
+			</batch:process-records>
+		</batch:job>
+	</flow>
+	<flow name="batch-process-trials-1_subFlow" doc:id="ffd1f0e0-7514-4718-9984-2cd521b48984">
+		<batch:job jobName="batch-process-trials-1_subFlow_Batch_Job" doc:id="4991e077-4ddf-420a-8664-53b81490ab1e" blockSize="2000">
+			<batch:process-records>
+				<batch:step name="Batch_Step" doc:id="c2d6f6b0-4cee-4a59-ad13-ffd0afe8a098">
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="0513606a-a912-441c-be60-0665361767d9" streaming="true">
+						<ee:transform doc:name="Transform Message" doc:id="20e9718e-d36c-4770-91f8-5a61f88cd08a">
+							<ee:message>
+								<ee:set-payload><![CDATA[%dw 2.0
+output text/xml
+---
+{
+	envelope:{
+		body:{
+			attnrequest:{
+				tokenid: "EYTEUE78",
+				attendances: {(payload map (record, index) -> {
+					attendance:{
+						id: record.id,
+						sid: record.sid,
+						course: record.course,
+						date: record.date,
+						hours: record.hours
+						}
+					})
+				}
+			}
+		}
+	}	
+}]]></ee:set-payload>
+							</ee:message>
+						</ee:transform>
+					</batch:aggregator>
+				</batch:step>
+			</batch:process-records>
+		</batch:job>
+	</flow>
+
+	<flow name="batch-process-trials-2" doc:id="5f9f846c-2525-435c-8479-fd6a8ba8d8ff">
+		<http:listener doc:name="HTTP: initTrialBatch2" doc:id="b3f6c4b2-7456-4e98-9663-17092b8868db" config-ref="HTTP_Listener_config" path="/initTrialBatch2"/>
+		<file:read doc:name="Read Trial-2 File" doc:id="0ebff9f4-76a5-4445-b081-29da800ab212" config-ref="MyFileConfig" path="trial2/Canvas Attendance - 34221.csv" outputMimeType="application/csv" />
+		<ee:transform doc:name="Transform Message" doc:id="ee5dd567-38e8-4587-a632-e2dd3ab3c7d9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java 
+---
+payload map (record, index) -> {
+	id: index as Number,
+	sid: record.Id default index,
+	course: record.Course,
+	date: record.Attn_Date,
+	hours: record.Attn_Hours
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<batch:job jobName="batch-process-trials-2-Batch_Job1" doc:id="3e6840f6-8bb7-466f-8b8b-4cc7523f95ca" blockSize="2000">
+			<batch:process-records >
+				<batch:step name="batch-process-trials-2-Batch_Job1-Step1" doc:id="52779234-1b14-4ccf-9046-3e2a94ac9c1a" >
+					<batch:aggregator doc:name="batch-process-trials-2-Batch Aggregator" doc:id="7a7ec8ce-020a-488f-8aed-39e473a05b96" size="2000">
+						<ee:transform doc:name="Transform Message" doc:id="a5d3a5c0-f271-458e-94e2-06535bfeb650">
+							<ee:message>
+								<ee:set-payload><![CDATA[%dw 2.0
+output text/xml
+---
+{
+	envelope:{
+		body:{
+			attnrequest:{
+				tokenid: "EYTEUE78",
+				attendances: {(payload map (record, index) -> {
+					attendance:{
+						id: record.id,
+						sid: record.sid,
+						course: record.course,
+						date: record.date,
+						hours: record.hours
+						}
+					})
+				}
+			}
+		}
+	}	
+}]]></ee:set-payload>
+							</ee:message>
+						</ee:transform>
+					</batch:aggregator>
+				</batch:step>
+			</batch:process-records>
+		</batch:job>
+		
+	</flow>
+</mule>

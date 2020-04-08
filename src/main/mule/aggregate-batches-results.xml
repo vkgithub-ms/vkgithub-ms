@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c640866b-8107-4a50-9e89-ad54da9de5fa" >
+		<http:listener-connection host="localhost" port="8081" connectionIdleTimeout="999999999"/>
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="d9063a1f-fc59-4ca5-9f1e-8de2811b63dd" >
+		<http:request-connection host="localhost" port="8081" connectionIdleTimeout="999999999" />
+		<expiration-policy maxIdleTime="10" timeUnit="MINUTES" />
+	</http:request-config>
+	<flow name="aggregate-batches-results" doc:id="4e5c857d-a1b7-490a-b5b0-aaaa3a3a9d3d" >
+		<http:listener doc:name="HTTP: GET/batchProcess" doc:id="b208c3ac-087e-4aaf-8804-18719c738a71" config-ref="HTTP_Listener_config" path="/batchProcess"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="111f85b6-7d2a-43fe-ad10-da1d047319b4" >
+			<route >
+				<set-variable value="#[%dw 2.0
+import * from dw::util::Timer
+---
+currentMilliseconds()]" doc:name="startTime-Trial-1" doc:id="1c222cc5-cd28-46e5-b232-27b952fccf0a" variableName="startTime-Trial-1"/>
+				<http:request method="GET" doc:name="/initTrialBatch1" doc:id="675f504e-d4ca-47c6-8a6b-322e71984443" config-ref="HTTP_Request_configuration" path="/initTrialBatch1" responseTimeout="999999999"/>
+				<ee:transform doc:name="Trial-1 Total Time" doc:id="87ccfa3a-bf20-486c-8cb5-d1be9ebe3d92">
+					<ee:message>
+					</ee:message>
+					<ee:variables >
+						<ee:set-variable variableName="payload0" ><![CDATA[%dw 2.0
+import * from dw::util::Timer
+output application/csv header=false, escape='null', lineSeparator = '\r'
+---
+{
+"Description" : 'Total time taken to process ',
+"Total" : ((currentMilliseconds()  as Number - vars."startTime-Trial-1" as Number) /1000),
+"Units": 'seconds'
+}]]></ee:set-variable>
+					</ee:variables>
+				
+</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="033925be-067c-4a29-8cd9-cce594b0f1ee" message="#[vars.payload0]"/>
+			</route>
+			<route >
+				<set-variable value="#[%dw 2.0
+import * from dw::util::Timer
+---
+currentMilliseconds()]" doc:name="startTime-Trial-2" doc:id="3b1e2e5b-ab76-4c9c-b05e-29df09f2bcd0" variableName="startTime-Trial-2"/>
+				<http:request method="GET" doc:name="/initTrialBatch2" doc:id="21eb5ac5-eaef-4de8-bdf4-d7e7da629344" config-ref="HTTP_Request_configuration" path="/initTrialBatch2" responseTimeout="999999999"/>
+				<ee:transform doc:name="Trial-2 Total Time" doc:id="589c4185-e4c7-4d0f-a9e2-ac82db3a5685">
+			<ee:message>
+			</ee:message>
+					<ee:variables >
+						<ee:set-variable variableName="payload1" ><![CDATA[%dw 2.0
+import * from dw::util::Timer
+output application/csv header=false, escape='null', lineSeparator = '\r\n'
+---
+{
+"Description" : 'Total time taken to process ',
+"Total" : ((currentMilliseconds()  as Number - vars."startTime-Trial-2" as Number) /1000),
+"Units": 'seconds'
+}]]></ee:set-variable>
+					</ee:variables>
+		</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="583cc495-2045-4e1e-9c66-37939d9f7c17" message="#[vars.payload1]"/>
+			</route>
+		
+</scatter-gather>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="40583edd-aaa2-46e0-bf77-856289ee86b7" >
+			<route >
+				<file:write doc:name="WriteToTrial-1File" doc:id="b155f626-c485-4a13-8b0a-2e14fa78e73a" config-ref="MyFileConfig" path="processed/resultsTrial-1.csv" mode="APPEND" >
+					<file:content ><![CDATA[#[vars.payload0]]]></file:content>
+				</file:write>
+				<ee:transform doc:name="NewLine" doc:id="36718997-0850-4927-8fbf-91b35e77d849">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/csv header=false, escape='null', lineSeparator = '\r'
+---
+{
+
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+				<file:write doc:name="WriteNewLine" doc:id="84f62505-6635-4bbb-9569-ca3825e50d8f" config-ref="MyFileConfig" path="processed/resultsTrial-1.csv" mode="APPEND" />
+			</route>
+			<route >
+				<file:write doc:name="WriteToTrial-2File" doc:id="fd063ca9-cf2a-4e6a-84cd-9b9ac8686cce" config-ref="MyFileConfig" path="processed/resultsTrial-2.csv" mode="APPEND" >
+					<file:content ><![CDATA[#[vars.payload1]]]></file:content>
+				</file:write>
+				<ee:transform doc:name="NewLine" doc:id="c7c4adec-701c-4745-b9ac-dddd755ba43e">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/csv header=false, escape='null', lineSeparator = '\r'
+---
+{
+
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<file:write doc:name="WriteNewLine" doc:id="5634541a-efa4-42c2-9bfb-35bdb9d5c677" config-ref="MyFileConfig" path="processed/resultsTrial-2.csv" mode="APPEND" />
+			</route>
+		</scatter-gather>
+	</flow>
+</mule>

@@ -1,0 +1,702 @@
+[    
+	{
+      "id": 0,
+      "sid": "628885",
+      "course": "AdClassSched_49331",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 1,
+      "sid": "628885",
+      "course": "AdClassSched_49331",
+      "date": "2/8/2020",
+      "hours": "60"
+    },
+    {
+      "id": 2,
+      "sid": "628885",
+      "course": "AdClassSched_49331",
+      "date": "1/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 3,
+      "sid": "636662",
+      "course": "AdClassSched_48762",
+      "date": "2/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 4,
+      "sid": "628885",
+      "course": "AdClassSched_49331",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 5,
+      "sid": "636662",
+      "course": "AdClassSched_48762",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 6,
+      "sid": "636662",
+      "course": "AdClassSched_48762",
+      "date": "2/3/2020",
+      "hours": "60"
+    },
+    {
+      "id": 7,
+      "sid": "636662",
+      "course": "AdClassSched_48762",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 8,
+      "sid": "636662",
+      "course": "AdClassSched_48762",
+      "date": "1/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 9,
+      "sid": "635263",
+      "course": "AdClassSched_49212",
+      "date": "1/30/2020",
+      "hours": "60"
+    },
+    {
+      "id": 10,
+      "sid": "635263",
+      "course": "AdClassSched_49212",
+      "date": "2/20/2020",
+      "hours": "60"
+    },
+    {
+      "id": 11,
+      "sid": "635263",
+      "course": "AdClassSched_49212",
+      "date": "1/23/2020",
+      "hours": "60"
+    },
+    {
+      "id": 12,
+      "sid": "635263",
+      "course": "AdClassSched_49212",
+      "date": "2/13/2020",
+      "hours": "60"
+    },
+    {
+      "id": 13,
+      "sid": "635263",
+      "course": "AdClassSched_49212",
+      "date": "2/3/2020",
+      "hours": "60"
+    },
+    {
+      "id": 14,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 15,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 16,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "1/13/2020",
+      "hours": "60"
+    },
+    {
+      "id": 17,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "2/5/2020",
+      "hours": "60"
+    },
+    {
+      "id": 18,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "2/10/2020",
+      "hours": "60"
+    },
+    {
+      "id": 19,
+      "sid": "626384",
+      "course": "AdClassSched_57203",
+      "date": "1/20/2020",
+      "hours": "60"
+    },
+    {
+      "id": 20,
+      "sid": "633836",
+      "course": "AdClassSched_49212",
+      "date": "1/29/2020",
+      "hours": "60"
+    },
+    {
+      "id": 21,
+      "sid": "633836",
+      "course": "AdClassSched_49212",
+      "date": "2/21/2020",
+      "hours": "60"
+    },
+    {
+      "id": 22,
+      "sid": "633836",
+      "course": "AdClassSched_49212",
+      "date": "1/15/2020",
+      "hours": "60"
+    },
+    {
+      "id": 23,
+      "sid": "633836",
+      "course": "AdClassSched_49212",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 24,
+      "sid": "633836",
+      "course": "AdClassSched_49212",
+      "date": "2/5/2020",
+      "hours": "60"
+    },
+    {
+      "id": 25,
+      "sid": "629795",
+      "course": "AdClassSched_49332",
+      "date": "2/15/2020",
+      "hours": "60"
+    },
+    {
+      "id": 26,
+      "sid": "629795",
+      "course": "AdClassSched_49332",
+      "date": "2/25/2020",
+      "hours": "60"
+    },
+    {
+      "id": 27,
+      "sid": "629795",
+      "course": "AdClassSched_49332",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 28,
+      "sid": "635950",
+      "course": "AdClassSched_48762",
+      "date": "2/18/2020",
+      "hours": "60"
+    },
+    {
+      "id": 29,
+      "sid": "635950",
+      "course": "AdClassSched_48762",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 30,
+      "sid": "630459",
+      "course": "AdClassSched_56621",
+      "date": "2/23/2020",
+      "hours": "60"
+    },
+    {
+      "id": 31,
+      "sid": "630459",
+      "course": "AdClassSched_56621",
+      "date": "2/16/2020",
+      "hours": "60"
+    },
+    {
+      "id": 32,
+      "sid": "630459",
+      "course": "AdClassSched_56621",
+      "date": "1/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 33,
+      "sid": "630459",
+      "course": "AdClassSched_56621",
+      "date": "2/3/2020",
+      "hours": "60"
+    },
+    {
+      "id": 34,
+      "sid": "630459",
+      "course": "AdClassSched_56621",
+      "date": "1/30/2020",
+      "hours": "60"
+    },
+    {
+      "id": 35,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "1/30/2020",
+      "hours": "60"
+    },
+    {
+      "id": 36,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "2/20/2020",
+      "hours": "60"
+    },
+    {
+      "id": 37,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 38,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "1/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 39,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "2/15/2020",
+      "hours": "60"
+    },
+    {
+      "id": 40,
+      "sid": "634726",
+      "course": "AdClassSched_49212",
+      "date": "2/7/2020",
+      "hours": "60"
+    },
+    {
+      "id": 41,
+      "sid": "623466",
+      "course": "AdClassSched_49332",
+      "date": "2/9/2020",
+      "hours": "60"
+    },
+    {
+      "id": 42,
+      "sid": "623466",
+      "course": "AdClassSched_49332",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 43,
+      "sid": "623466",
+      "course": "AdClassSched_49332",
+      "date": "1/26/2020",
+      "hours": "60"
+    },
+    {
+      "id": 44,
+      "sid": "623466",
+      "course": "AdClassSched_49332",
+      "date": "1/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 45,
+      "sid": "623466",
+      "course": "AdClassSched_49332",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 46,
+      "sid": "615758",
+      "course": "AdClassSched_48762",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 47,
+      "sid": "615758",
+      "course": "AdClassSched_48762",
+      "date": "1/16/2020",
+      "hours": "60"
+    },
+    {
+      "id": 48,
+      "sid": "615758",
+      "course": "AdClassSched_48762",
+      "date": "2/5/2020",
+      "hours": "60"
+    },
+    {
+      "id": 49,
+      "sid": "615758",
+      "course": "AdClassSched_48762",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 50,
+      "sid": "623357",
+      "course": "AdClassSched_56629",
+      "date": "2/14/2020",
+      "hours": "60"
+    },
+    {
+      "id": 51,
+      "sid": "623357",
+      "course": "AdClassSched_56629",
+      "date": "2/10/2020",
+      "hours": "60"
+    },
+    {
+      "id": 52,
+      "sid": "623357",
+      "course": "AdClassSched_56629",
+      "date": "1/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 53,
+      "sid": "623357",
+      "course": "AdClassSched_56629",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 54,
+      "sid": "623357",
+      "course": "AdClassSched_56629",
+      "date": "1/26/2020",
+      "hours": "60"
+    },
+    {
+      "id": 55,
+      "sid": "626576",
+      "course": "AdClassSched_49332",
+      "date": "2/13/2020",
+      "hours": "60"
+    },
+    {
+      "id": 56,
+      "sid": "626576",
+      "course": "AdClassSched_49332",
+      "date": "2/22/2020",
+      "hours": "60"
+    },
+    {
+      "id": 57,
+      "sid": "626576",
+      "course": "AdClassSched_49332",
+      "date": "1/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 58,
+      "sid": "626576",
+      "course": "AdClassSched_49332",
+      "date": "1/31/2020",
+      "hours": "60"
+    },
+    {
+      "id": 59,
+      "sid": "633514",
+      "course": "AdClassSched_49213",
+      "date": "1/31/2020",
+      "hours": "60"
+    },
+    {
+      "id": 60,
+      "sid": "633514",
+      "course": "AdClassSched_49213",
+      "date": "2/18/2020",
+      "hours": "60"
+    },
+    {
+      "id": 61,
+      "sid": "633514",
+      "course": "AdClassSched_49213",
+      "date": "2/10/2020",
+      "hours": "60"
+    },
+    {
+      "id": 62,
+      "sid": "636786",
+      "course": "AdClassSched_48762",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 63,
+      "sid": "636786",
+      "course": "AdClassSched_48762",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 64,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 65,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "1/27/2020",
+      "hours": "60"
+    },
+    {
+      "id": 66,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "1/21/2020",
+      "hours": "60"
+    },
+    {
+      "id": 67,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "2/10/2020",
+      "hours": "60"
+    },
+    {
+      "id": 68,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 69,
+      "sid": "609371",
+      "course": "AdClassSched_56630",
+      "date": "2/3/2020",
+      "hours": "60"
+    },
+    {
+      "id": 70,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "2/16/2020",
+      "hours": "60"
+    },
+    {
+      "id": 71,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "2/5/2020",
+      "hours": "60"
+    },
+    {
+      "id": 72,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 73,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "1/21/2020",
+      "hours": "60"
+    },
+    {
+      "id": 74,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "1/19/2020",
+      "hours": "60"
+    },
+    {
+      "id": 75,
+      "sid": "623145",
+      "course": "AdClassSched_49333",
+      "date": "1/29/2020",
+      "hours": "60"
+    },
+    {
+      "id": 76,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "2/20/2020",
+      "hours": "60"
+    },
+    {
+      "id": 77,
+      "sid": "633281",
+      "course": "AdClassSched_49277",
+      "date": "2/14/2020",
+      "hours": "60"
+    },
+    {
+      "id": 78,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "1/28/2020",
+      "hours": "60"
+    },
+    {
+      "id": 79,
+      "sid": "633281",
+      "course": "AdClassSched_49277",
+      "date": "1/26/2020",
+      "hours": "60"
+    },
+    {
+      "id": 80,
+      "sid": "633281",
+      "course": "AdClassSched_49277",
+      "date": "1/31/2020",
+      "hours": "60"
+    },
+    {
+      "id": 81,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "1/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 82,
+      "sid": "633281",
+      "course": "AdClassSched_49277",
+      "date": "2/7/2020",
+      "hours": "60"
+    },
+    {
+      "id": 83,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 84,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "2/7/2020",
+      "hours": "60"
+    },
+    {
+      "id": 85,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "2/13/2020",
+      "hours": "60"
+    },
+    {
+      "id": 86,
+      "sid": "636395",
+      "course": "AdClassSched_48762",
+      "date": "1/22/2020",
+      "hours": "60"
+    },
+    {
+      "id": 87,
+      "sid": "629326",
+      "course": "AdClassSched_56630",
+      "date": "2/20/2020",
+      "hours": "60"
+    },
+    {
+      "id": 88,
+      "sid": "629326",
+      "course": "AdClassSched_56630",
+      "date": "1/28/2020",
+      "hours": "60"
+    },
+    {
+      "id": 89,
+      "sid": "629326",
+      "course": "AdClassSched_56630",
+      "date": "1/22/2020",
+      "hours": "60"
+    },
+    {
+      "id": 90,
+      "sid": "629326",
+      "course": "AdClassSched_56630",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 91,
+      "sid": "629326",
+      "course": "AdClassSched_56630",
+      "date": "2/4/2020",
+      "hours": "60"
+    },
+    {
+      "id": 92,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "2/17/2020",
+      "hours": "60"
+    },
+    {
+      "id": 93,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "1/30/2020",
+      "hours": "60"
+    },
+    {
+      "id": 94,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "2/24/2020",
+      "hours": "60"
+    },
+    {
+      "id": 95,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "2/6/2020",
+      "hours": "60"
+    },
+    {
+      "id": 96,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "2/10/2020",
+      "hours": "60"
+    },
+    {
+      "id": 97,
+      "sid": "635514",
+      "course": "AdClassSched_48762",
+      "date": "1/21/2020",
+      "hours": "60"
+    },
+    {
+      "id": 98,
+      "sid": "507977",
+      "course": "AdClassSched_49277",
+      "date": "2/11/2020",
+      "hours": "60"
+    },
+    {
+      "id": 99,
+      "sid": "507977",
+      "course": "AdClassSched_49277",
+      "date": "1/27/2020",
+      "hours": "60"
+    }
+]

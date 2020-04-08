@@ -1,0 +1,10 @@
+{
+  "sampleData": {
+    "ad767dcf-ee8c-4a0d-af4f-a350867494b0": {
+      "payload": "sample_data/list_defaulttypeparametertype.json"
+    },
+    "6d6956f7-c593-4927-a53c-3caf8c2ac532": {
+      "payload": "sample_data/list_list_defaulttypeparametertype.json"
+    }
+  }
+}
