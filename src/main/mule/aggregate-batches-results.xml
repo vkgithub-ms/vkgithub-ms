@@ -66,7 +66,7 @@ output application/csv header=false, escape='null', lineSeparator = '\r\n'
 			</route>
 		
 </scatter-gather>
-		<scatter-gather doc:name="Scatter-Gather" doc:id="40583edd-aaa2-46e0-bf77-856289ee86b7" >
+		<scatter-gather doc:name="Log Timetaken by Batch Porcessess" doc:id="40583edd-aaa2-46e0-bf77-856289ee86b7" >
 			<route >
 				<file:write doc:name="WriteToTrial-1File" doc:id="b155f626-c485-4a13-8b0a-2e14fa78e73a" config-ref="MyFileConfig" path="processed/resultsTrial-1.csv" mode="APPEND" >
 					<file:content ><![CDATA[#[vars.payload0]]]></file:content>
