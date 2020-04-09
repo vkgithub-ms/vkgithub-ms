@@ -25,6 +25,14 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					<cloudHubDeployment>
+						<username>vkmstmulesoft</username>
+						<environment>Sandbox</environment>
+						<workerType>Micro</workerType>
+						<applicationName>mule4-batch-demo</applicationName>
+						<passWord>MSsowjinp2020$</passWord>
+						<muleVersion>4.2.2</muleVersion>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
