@@ -30,7 +30,7 @@
 						<environment>Sandbox</environment>
 						<workerType>Micro</workerType>
 						<applicationName>mule4-batch-demo</applicationName>
-						<passWord>MSsowjinp2020$</passWord>
+						<password>MSsowjinp2020$</password>
 						<muleVersion>4.2.2</muleVersion>
 					</cloudHubDeployment>
 				</configuration>
