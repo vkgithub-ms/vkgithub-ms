@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 	</http:request-config>
 	<flow name="aggregate-batches-results" doc:id="4e5c857d-a1b7-490a-b5b0-aaaa3a3a9d3d" >
 		<http:listener doc:name="HTTP: GET/batchProcess" doc:id="b208c3ac-087e-4aaf-8804-18719c738a71" config-ref="HTTP_Listener_config" path="/batchProcess"/>
-		<scatter-gather doc:name="Scatter-Gather" doc:id="111f85b6-7d2a-43fe-ad10-da1d047319b4" >
+		<scatter-gather doc:name="Run Two Batches Parallelly" doc:id="111f85b6-7d2a-43fe-ad10-da1d047319b4" >
 			<route >
 				<set-variable value="#[%dw 2.0
 import * from dw::util::Timer
