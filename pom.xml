@@ -27,7 +27,7 @@
 				<configuration>
 					<cloudHubDeployment>
 						<username>vkmstmulesoft</username>
-						<environment>DEV</environment>
+						<environment>Dev</environment>
 						<workerType>Micro</workerType>
 						<applicationName>mule4-batch-demo</applicationName>
 						<password>MSsowjinp2020$</password>
