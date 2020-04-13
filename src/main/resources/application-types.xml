@@ -98,4 +98,5 @@ type csv_record = Array<{|  Id: String,   Course: String,   Attn_Date: String,  
   </types:enrichment>
   <types:enrichment select="#87ccfa3a-bf20-486c-8cb5-d1be9ebe3d92"/>
   <types:enrichment select="#589c4185-e4c7-4d0f-a9e2-ac82db3a5685"/>
+  <types:enrichment select="#22fe6679-5fb2-42d4-b9af-c32ca0f2ace1"/>
 </types:mule>

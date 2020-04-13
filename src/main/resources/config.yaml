@@ -1,0 +1,8 @@
+anypoint:
+  uri: https://anypoint.mulesoft.com
+  user: vkmstmulesoft
+  pwd: MSsowjinp2020$
+  env:  Dev
+  workerType: Micro
+  appName: mule4-batch-demo
+  muleVersion: 4.2.2

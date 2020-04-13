@@ -8,11 +8,11 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	<file:config name="MyFileConfig" doc:name="File Config" doc:id="2da8c76d-be88-4dff-bdc3-ac8be8890b18" >
-		<file:connection workingDir="C:\source\ipas\mulesoft\Training\MUFundamentals4.2_studentFiles_27jul2019\resources" />
+		<file:connection workingDir="C:\workspace\alliant\batch-process-trials\src\main\resources\examples" />
 	</file:config>
 	<flow name="batch-process-trials-1" doc:id="b57b8c80-38ac-4007-ab39-eb19bad4890a">
 		<http:listener doc:name="HTTP: initTrialBatch1" doc:id="f1f010d8-07b0-48e6-b901-ac018e523989" config-ref="HTTP_Listener_config" path="/initTrialBatch1"/>
-		<file:read doc:name="Read Trial-1 File" doc:id="e2091258-d7d3-46c1-8e2b-47fb2e6dc6cc" config-ref="MyFileConfig" path="trial1/Canvas Attendance - 34221.csv" outputMimeType="application/csv"/>
+		<file:read doc:name="Read Trial-1 File" doc:id="e2091258-d7d3-46c1-8e2b-47fb2e6dc6cc" config-ref="MyFileConfig" path="Canvas Attendance Trial-1_34221.csv" outputMimeType="application/csv"/>
 		<ee:transform doc:name="Transform Message" doc:id="79558cf7-0ff8-4817-9cc7-b26d575124db" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -79,11 +79,24 @@ output text/xml
 				</batch:step>
 			</batch:process-records>
 		</batch:job>
+		<ee:transform doc:name="Transform Message" doc:id="3240a980-90e2-4b6a-bae8-9ddb918cabce">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
 	</flow>
 
 	<flow name="batch-process-trials-2" doc:id="5f9f846c-2525-435c-8479-fd6a8ba8d8ff">
-		<http:listener doc:name="HTTP: initTrialBatch2" doc:id="b3f6c4b2-7456-4e98-9663-17092b8868db" config-ref="HTTP_Listener_config" path="/initTrialBatch2"/>
-		<file:read doc:name="Read Trial-2 File" doc:id="0ebff9f4-76a5-4445-b081-29da800ab212" config-ref="MyFileConfig" path="trial2/Canvas Attendance - 34221.csv" outputMimeType="application/csv" />
+		<http:listener doc:name="HTTP: initTrialBatch2" doc:id="b3f6c4b2-7456-4e98-9663-17092b8868db" config-ref="HTTP_Listener_config" path="/initTrialBatch2" outputMimeType="application/json">
+			<http:response>
+				<http:body ><![CDATA[#[vars.elapsedTime]]]></http:body>
+			</http:response>
+		</http:listener>
+		<file:read doc:name="Read Trial-2 File" doc:id="0ebff9f4-76a5-4445-b081-29da800ab212" config-ref="MyFileConfig" path="Canvas Attendance Trial-2_34221.csv" outputMimeType="application/csv" />
 		<ee:transform doc:name="Transform Message" doc:id="ee5dd567-38e8-4587-a632-e2dd3ab3c7d9" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -97,6 +110,13 @@ payload map (record, index) -> {
 	hours: record.Attn_Hours
 }]]></ee:set-payload>
 			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="elapsedTime" ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-variable>
+			</ee:variables>
 		</ee:transform>
 		<batch:job jobName="batch-process-trials-2-Batch_Job1" doc:id="3e6840f6-8bb7-466f-8b8b-4cc7523f95ca" blockSize="2000">
 			<batch:process-records >
@@ -132,6 +152,17 @@ output text/xml
 				</batch:step>
 			</batch:process-records>
 		</batch:job>
+		<ee:transform doc:name="Transform Message" doc:id="22fe6679-5fb2-42d4-b9af-c32ca0f2ace1">
+					<ee:message>
+					</ee:message>
+					<ee:variables>
+						<ee:set-variable variableName="elapsedTime"><![CDATA[output application/json
+---
+{
+	"elapsedTimeInMillis": payload.elapsedTimeInMillis
+}]]></ee:set-variable>
+					</ee:variables>
+				</ee:transform>
 		
 	</flow>
 </mule>
