@@ -1,7 +1,6 @@
 pipeline{
 	
 	agent any
-	
 	environment {
 	  DEPLOY_CREDS = credentials('deploy-anypoint-user')
 	  MULE_VERSION = '4.2.2'
@@ -15,11 +14,13 @@ pipeline{
 			bat 'mvn -B -U -e -V clean -DskipTests package'
 		  }
 		}
+		
 		stage('Test') {
 			steps {
 			bat "mvn test"
 			}
 		}
+		
 		stage('Deploy Development') {
 			environment {
 				ENVIRONMENT = 'Dev'
@@ -35,7 +36,8 @@ pipeline{
 		}
 		stage('Deploy Production') {
 			environment {
-				ENVIRONMENT = 'Production'
+				//ENVIRONMENT = 'Production'
+				ENVIRONMENT = 'Dev'
 				APP_NAME = 'mule4-batch-demo'
 			}
 			steps {
