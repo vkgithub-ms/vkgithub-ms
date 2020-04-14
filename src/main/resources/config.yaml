@@ -6,3 +6,4 @@ anypoint:
   workerType: Micro
   appName: mule4-batch-demo
   muleVersion: 4.2.2
+  businessGroup: MST Solutions

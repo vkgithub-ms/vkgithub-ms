@@ -34,7 +34,7 @@
 						<workerType>${anypoint.workerType}</workerType>
 						<applicationName>${anypoint.appName}</applicationName>
 						<password>${anypoint.pwd}</password>
-						<muleVersion>${anypoint.muleVersion}</muleVersion>
+						<muleVersion>4.2.2</muleVersion>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
