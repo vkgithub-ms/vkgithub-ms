@@ -29,12 +29,12 @@
 				<configuration>
 					<cloudHubDeployment>
 						<uri>${anypoint.uri}</uri>
-						<username>${anypoint.user}</username>
-						<environment>${anypoint.pwd}</environment>
+						<environment>${anypoint.env}</environment>
 						<workerType>${anypoint.workerType}</workerType>
+						<muleVersion>${anypoint.muleVersion}</muleVersion>
 						<applicationName>${anypoint.appName}</applicationName>
+						<username>${anypoint.user}</username>
 						<password>${anypoint.pwd}</password>
-						<muleVersion>4.2.2</muleVersion>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
