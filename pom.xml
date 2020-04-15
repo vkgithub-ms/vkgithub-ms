@@ -28,13 +28,13 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<uri>${anypoint.uri}</uri>
-						<environment>${anypoint.env}</environment>
-						<workerType>${anypoint.workerType}</workerType>
-						<muleVersion>${anypoint.muleVersion}</muleVersion>
-						<applicationName>${anypoint.appName}</applicationName>
-						<username>${anypoint.user}</username>
-						<password>${anypoint.pwd}</password>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<environment>Dev</environment>
+						<workerType>Micro</workerType>
+						<muleVersion>4.2.2</muleVersion>
+						<applicationName>mule4-batch-demo</applicationName>
+						<username>vkmstmulesoft</username>
+						<password>MSsowjinp2020$</password>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
